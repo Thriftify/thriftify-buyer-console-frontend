@@ -1,0 +1,381 @@
+// @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+// Breakpoints
+@mixin afterMaxWidth() {
+  @media (min-width: (1300px)) {
+    @content;
+  }
+}
+@mixin smallLaptop() {
+  @media (max-width: (1200px)) {
+    @content;
+  }
+}
+@mixin bigTablet() {
+  @media (max-width: (900px)) {
+    @content;
+  }
+}
+@mixin tablet() {
+  @media (max-width: (768px)) {
+    @content;
+  }
+}
+@mixin bigMobilePhone() {
+  @media (max-width: (520px)) {
+    @content;
+  }
+}
+@mixin smallmobilePhone() {
+  @media (max-width: (370px)) {
+    @content;
+  }
+}
+
+@mixin sectionPadding {
+  padding: $padding-desktop;
+  padding-top: 96px;
+  padding-bottom: 40px;
+  @media screen and (min-width: 1300px) {
+    padding: 0px 16%;
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+  @include tablet() {
+    // padding: $padding-mobile;
+    padding: 16px;
+    padding-top: 96px;
+    padding-bottom: 40px;
+  }
+}
+
+// Animation
+@keyframes slideLeft {
+  from {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@keyframes slideLeftOut {
+  0% {
+    left: 0%;
+    opacity: 1;
+  }
+  80% {
+    left: -100%;
+    opacity: 0;
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes slideRight {
+  from {
+    right: -100%;
+    opacity: 0;
+  }
+}
+
+// Buttons
+@mixin big-button {
+  border-radius: 32px;
+  cursor: pointer;
+  font-size: $font-size-16 - 2px;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  background-color: $primary-color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  width: max-content;
+  min-width: max-content;
+  height: fit-content;
+  max-height: 36px;
+  transition: all 300ms ease;
+  svg {
+    opacity: 1;
+    color: #fff;
+    width: 12px;
+    path {
+      fill: #fff;
+    }
+  }
+
+  // &:hover {
+  //   gap: 16px;
+  //   svg {
+  //     opacity: 1;
+  //   }
+  // }
+}
+@mixin medium-button {
+  width: fit-content;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: $font-size-16 - 2px;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  background-color: $primary-color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 300ms ease;
+  svg {
+    opacity: 1;
+    color: #fff;
+    width: 12px;
+    path {
+      fill: #fff;
+    }
+  }
+
+  // &:hover {
+  //   gap: 16px;
+  //   svg {
+  //     opacity: 1;
+  //   }
+  // }
+}
+@mixin small-button {
+  width: fit-content;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: $font-size-16 - 2px;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  background-color: $primary-color;
+  color: $white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 300ms ease;
+  svg {
+    opacity: 1;
+    color: #fff;
+    width: 12px;
+    path {
+      fill: #fff;
+    }
+  }
+
+  // &:hover {
+  //   // gap: 12px;
+  //   svg {
+  //     opacity: 1;
+  //   }
+  // }
+}
+
+// Input field
+@mixin input {
+  width: fit-content;
+  border-radius: 50px;
+  font-size: $font-size-16 - 2px;
+  padding: 0.8rem 1.1rem;
+  border: none;
+  outline: none;
+  background-color: $white;
+  &::placeholder {
+    color: $grey-bg;
+  }
+}
+
+@mixin bumpDownAnimation {
+  // animation: bumpDown 400ms cubic-bezier(0.91, -0.31, 0.27, 1.55);
+  animation: bumpDown 400ms cubic-bezier(0.65, -0.07, 0.25, 1.24);
+
+  @keyframes bumpDown {
+    from {
+      top: 35px;
+      opacity: 0;
+    }
+  }
+}
+
+@mixin searchSlideInAnimation {
+  // animation: searchSlideIn 400ms cubic-bezier(0.91, -0.31, 0.27, 1.55);
+  animation: searchSlideIn 400ms cubic-bezier(0.65, -0.07, 0.25, 1.24);
+
+  @keyframes searchSlideIn {
+    from {
+      right: -35px;
+      opacity: 0;
+    }
+  }
+}
+
+@mixin searchBarDropdown {
+  position: absolute;
+  right: 0;
+  // top: 45px;
+  bottom: 44px;
+  background-color: $white;
+  padding: 8px;
+  display: flex;
+  // flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  // border: 1px solid #000;
+  input {
+    padding: 4px;
+    outline: none;
+    order: 1;
+  }
+  &__topArea {
+    width: fit-content;
+    // margin-bottom: 8px;
+    // border: 1px solid #000;
+    margin-left: auto;
+    order: 2;
+    svg {
+      width: 12px;
+      height: 12px;
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+  &__filterResults,
+  &__filterResultsUnavailable {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    top: 56px;
+    left: 0;
+    overflow-y: auto;
+    max-height: 200px;
+    @extend .scrollArea;
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+    }
+    p.eachFilterResult {
+      font-size: $font-size-16 - 4px;
+      margin: 0;
+      color: $black;
+      background-color: $white;
+      width: 100%;
+      padding: 10px 8px;
+      &:hover {
+        background-color: $grey-bg;
+        cursor: pointer;
+      }
+    }
+  }
+  &__filterResultsUnavailable {
+    overflow-x: hidden;
+    p {
+      font-style: italic;
+      font-size: $font-size-16 - 4px;
+      color: $failed-color;
+      white-space: normal;
+    }
+  }
+  .actionBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    button {
+      padding: 6px;
+      background-color: $primary-color;
+      color: $white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      font-size: $font-size-16 - 4px;
+      font-weight: $fontWeight-300;
+      cursor: pointer;
+    }
+  }
+  @include searchSlideInAnimation();
+}
+
+@mixin tagStyle {
+  font-size: $font-size-16 - 6px;
+  padding: 2px 6px;
+  border: 1px solid $standard;
+  border-radius: 12px;
+  color: $standard;
+  background-color: lighten($color: $standard, $amount: 50%);
+  margin-top: 2px;
+  user-select: none;
+}
+
+// Input field error message
+.errorMsg {
+  font-size: 12px;
+  color: #eb485b;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  svg {
+    width: 12px;
+    height: 12x;
+    display: inline-flex;
+    height: fit-content;
+
+    path {
+      fill: #eb485b;
+    }
+  }
+}
+
+.container {
+  padding: 0 24px;
+  // max-width: 1500px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 528px) {
+    padding: 0 16px;
+  }
+}
+
+.scrollArea {
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($color: $primary-color, $amount: 40%);
+    border-radius: 0px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    @media screen and (max-width: 768px) {
+      width: 4px;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba($primary-color, 0.2);
+  }
+}
+.scrollAreaMin {
+  @extend .scrollArea;
+  &::-webkit-scrollbar {
+    width: 4px;
+    @media screen and (max-width: 768p4) {
+      width: 2px;
+    }
+  }
+}
+
+@mixin inactiveBtn {
+  background-color: #cecece;
+  cursor: not-allowed;
+}
