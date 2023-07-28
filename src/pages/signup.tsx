@@ -3,23 +3,28 @@ import styles from "../styles/Login.module.scss";
 import Image from "next/image";
 import images from "../../public/images";
 import { InfoIcon } from "@/components/SVGs/SVGicons";
+import useResponsive from "@/components/hooks/useResponsiveness";
+import Link from "next/link";
 
 interface SignupProps {
 
 }
 
 const Signup: FunctionComponent<SignupProps> = (): ReactElement => {
+
+    const onMobile = useResponsive();
+
     return (
         <div className={styles.loginPage}>
             <div className={styles.loginPageContainer}>
                 <div className={styles.container}>
-                    <div className={styles.container__lhs}>
+                    {!onMobile && <div className={styles.container__lhs}>
                         <Image src={images.loginImg1} alt="product" />
                         <div className={styles.textContents}>
                             <h4>Welcome to Thriftify!</h4>
                             <p>Join a world of exciting auctions and one-time sales. Discover hidden treasures and exclusive deals that match your style and budget.</p>
                         </div>
-                    </div>
+                    </div>}
                     <div className={styles.container__rhs}>
                         <div className={styles.logo}>
                             <Image src={images.blueLogo} alt="Logo" />
@@ -48,7 +53,11 @@ const Signup: FunctionComponent<SignupProps> = (): ReactElement => {
                         </form>
                     </div>
                 </div>
-                <p>Already signed up? <span>Log in</span></p>
+                <p>Already signed up?&nbsp;
+                    <Link href='/login'>
+                        <span>Log in</span>
+                    </Link>
+                </p>
             </div>
         </div>
     );
