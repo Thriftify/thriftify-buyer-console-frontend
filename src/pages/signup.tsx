@@ -18,7 +18,7 @@ const Signup: FunctionComponent<SignupProps> = (): ReactElement => {
         <div className={styles.loginPage}>
             <div className={styles.loginPageContainer}>
                 <div className={styles.container}>
-                    {!onMobile && <div className={styles.container__lhs}>
+                    {onMobile !== undefined && !onMobile && <div className={styles.container__lhs}>
                         <Image src={images.loginImg1} alt="product" />
                         <div className={styles.textContents}>
                             <h4>Welcome to Thriftify!</h4>
