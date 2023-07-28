@@ -18,13 +18,13 @@ const Login: FunctionComponent<LoginProps> = (): ReactElement => {
         <div className={styles.loginPage}>
             <div className={styles.loginPageContainer}>
                 <div className={styles.container}>
-                    {!onMobile && <div className={styles.container__lhs}>
+                    {onMobile !== undefined && !onMobile ? <div className={styles.container__lhs}>
                         <Image src={images.loginImg3} alt="product" />
                         <div className={styles.textContents}>
                             <h4>Stay in the Loop</h4>
                             <p>Never miss a great deal or auction again! Customize your notifications to receive alerts on your favorite products and events.</p>
                         </div>
-                    </div>}
+                    </div> : <></>}
                     <div className={styles.container__rhs}>
                         <div className={styles.logo}>
                             <Image src={images.blueLogo} alt="Logo" />
