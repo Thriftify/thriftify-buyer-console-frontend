@@ -3,23 +3,28 @@ import styles from "../styles/Login.module.scss";
 import Image from "next/image";
 import images from "../../public/images";
 import { InfoIcon } from "@/components/SVGs/SVGicons";
+import useResponsive from "@/components/hooks/useResponsiveness";
+import Link from "next/link";
 
 interface LoginProps {
 
 }
 
 const Login: FunctionComponent<LoginProps> = (): ReactElement => {
+
+    const onMobile = useResponsive();
+
     return (
         <div className={styles.loginPage}>
             <div className={styles.loginPageContainer}>
                 <div className={styles.container}>
-                    <div className={styles.container__lhs}>
+                    {!onMobile && <div className={styles.container__lhs}>
                         <Image src={images.loginImg3} alt="product" />
                         <div className={styles.textContents}>
                             <h4>Stay in the Loop</h4>
                             <p>Never miss a great deal or auction again! Customize your notifications to receive alerts on your favorite products and events.</p>
                         </div>
-                    </div>
+                    </div>}
                     <div className={styles.container__rhs}>
                         <div className={styles.logo}>
                             <Image src={images.blueLogo} alt="Logo" />
@@ -47,7 +52,11 @@ const Login: FunctionComponent<LoginProps> = (): ReactElement => {
                         </form>
                     </div>
                 </div>
-                <p>Don’t have an account? <span>Sign up</span></p>
+                <p>Don&apos;t have an account?&nbsp;
+                    <Link href='/signup'>
+                        <span>Sign up</span>
+                    </Link>
+                </p>
             </div>
         </div>
     );
