@@ -15,14 +15,14 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }): ReactElement => {
 
     return (
         <>
-            {!isLoginOrSignUp ?
-                <>
+            {isLoginOrSignUp ?
+                <>{children}</>
+                : <>
                     <Navbar />
                     {children}
                     <Footer />
-                </> :
-                    <>{children}</>
-                }
+                </>
+            }
         </>
     );
 }
