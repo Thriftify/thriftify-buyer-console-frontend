@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 
-export default function useResponsive() {
-    function windowMatch() {
-        if (typeof window !== "undefined") {
-            return (window.matchMedia("(max-width: 768px)").matches);
-        }
-    }
-    const [onMobile, setOnMobile] = useState<any>(windowMatch());
+export default function useIsWithin768px(): boolean {
+
+    const [isWithin768px, setIsWithin768px] = useState(() => window.innerWidth <= 768);
+    // const [isWithin768px, setIsWithin768px] = useState(false);
+
     useEffect(() => {
-        // Set media query btw 0px and 768px
-        if (typeof window !== "undefined") {
-            window.matchMedia("(max-width: 768px)").addEventListener('change', e => {
-                setOnMobile(e.matches);
-            })
+        function handleResize() {
+            setIsWithin768px(window.innerWidth <= 768);
         }
-    })
-    // Return the state variable
-    return onMobile;
+
+        if (typeof window !== "undefined") {
+            setIsWithin768px(window.innerWidth <= 768);
+            window.addEventListener('resize', handleResize);
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
+    }, []);
+
+    return isWithin768px;
 }
