@@ -111,10 +111,10 @@
         }
     }
     .mobileNavIcon {
-        z-index: 5;
+        z-index: 6;
         cursor: pointer;
         svg {
-            z-index: 5;
+            z-index: 6;
         }
     }
 
@@ -133,6 +133,7 @@
         position: fixed;
         background-color: rgba($color: $black, $alpha: 0.5);
         animation: slideIn 400ms cubic-bezier(0.65, -0.07, 0.25, 1.24) 100ms;
+        z-index: 5;
     }
 
     .mobileNavbar {
@@ -145,6 +146,7 @@
         display: grid;
         place-items: center;
         animation: slideIn 400ms cubic-bezier(0.65, -0.07, 0.25, 1.24);
+        z-index: 5;
 
         ul {
             list-style: none;
