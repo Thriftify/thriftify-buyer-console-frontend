@@ -2,29 +2,29 @@
 @import "./variables.scss";
 @import "./reuseables";
 
-@font-face {
-    font-family: "Gilroy";
-    src: url("../../public/fonts/Gilroy-Light.otf") format("opentype");
-    /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
-    /* src: url('/fonts/myfont.woff') format('woff'),
-		   url('/fonts/myfont.woff2') format('woff2'); */
-}
+// @font-face {
+//     font-family: "Gilroy";
+//     src: url("../../public/fonts/Gilroy-Light.otf") format("opentype");
+//     /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
+//     /* src: url('/fonts/myfont.woff') format('woff'),
+// 		   url('/fonts/myfont.woff2') format('woff2'); */
+// }
 
-@font-face {
-    font-family: "Mona Sans";
-    src: url("../../public/fonts/Mona-Sans-Regular.ttf") format("truetype");
-    /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
-    /* src: url('/fonts/myfont.woff') format('woff'),
-		   url('/fonts/myfont.woff2') format('woff2'); */
-}
+// @font-face {
+//     font-family: "Mona Sans";
+//     src: url("../../public/fonts/Mona-Sans-Regular.ttf") format("truetype");
+//     /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
+//     /* src: url('/fonts/myfont.woff') format('woff'),
+// 		   url('/fonts/myfont.woff2') format('woff2'); */
+// }
 
-@font-face {
-    font-family: "Mona Sans Wide";
-    src: url("../../public/fonts/Mona-Sans-RegularWide.ttf") format("truetype");
-    /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
-    /* src: url('/fonts/myfont.woff') format('woff'),
-		   url('/fonts/myfont.woff2') format('woff2'); */
-}
+// @font-face {
+//     font-family: "Mona Sans Wide";
+//     src: url("../../public/fonts/Mona-Sans-RegularWide.ttf") format("truetype");
+//     /* You can also define other font formats (e.g., woff, ttf) for cross-browser compatibility */
+//     /* src: url('/fonts/myfont.woff') format('woff'),
+// 		   url('/fonts/myfont.woff2') format('woff2'); */
+// }
 
 * {
     box-sizing: border-box;
@@ -42,6 +42,7 @@ body {
     max-width: 100vw;
     background-color: $white;
     color: $dark-grey;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
