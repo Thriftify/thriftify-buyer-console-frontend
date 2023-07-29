@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactElement } from "react";
+import { FunctionComponent, ReactElement, useState, useEffect } from "react";
 import styles from "../styles/Login.module.scss";
 import Image from "next/image";
 import images from "../../public/images";
@@ -14,17 +14,18 @@ const Login: FunctionComponent<LoginProps> = (): ReactElement => {
 
     const onMobile = useResponsive();
 
-    return (
+    return (    
         <div className={styles.loginPage}>
             <div className={styles.loginPageContainer}>
                 <div className={styles.container}>
-                    {onMobile !== undefined && !onMobile ? <div className={styles.container__lhs}>
-                        <Image src={images.loginImg3} alt="product" />
-                        <div className={styles.textContents}>
-                            <h4>Stay in the Loop</h4>
-                            <p>Never miss a great deal or auction again! Customize your notifications to receive alerts on your favorite products and events.</p>
-                        </div>
-                    </div> : <></>}
+                    {!onMobile &&
+                        <div className={styles.container__lhs}>
+                            <Image src={images.loginImg3} alt="product" />
+                            <div className={styles.textContents}>
+                                <h4>Stay in the Loop</h4>
+                                <p>Never miss a great deal or auction again! Customize your notifications to receive alerts on your favorite products and events.</p>
+                            </div>
+                        </div>}
                     <div className={styles.container__rhs}>
                         <div className={styles.logo}>
                             <Image src={images.blueLogo} alt="Logo" />
@@ -58,7 +59,7 @@ const Login: FunctionComponent<LoginProps> = (): ReactElement => {
                     </Link>
                 </p>
             </div>
-        </div>
+        </div>  
     );
 }
 
